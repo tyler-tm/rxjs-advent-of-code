@@ -1,5 +1,5 @@
 import { readFile } from "./utils/inputParser.js"
-import { mergeMap, reduce } from "rxjs"
+import { map, mergeMap, reduce, takeLast } from "rxjs"
 
 const YEAR = 2022
 const DAY = 1
@@ -12,4 +12,5 @@ export const solve = readFile(YEAR, DAY, TRIM_LAST)
             : [a[0], a[1] + parseInt(c)],
         [[], 0]))
     .pipe(mergeMap(x => x[0].sort((a, b) => a - b)))
-    .pipe(takeLast(1))
+    .pipe(takeLast(3))
+    .pipe(reduce((a, c) => a + c))

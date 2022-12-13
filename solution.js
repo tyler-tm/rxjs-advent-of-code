@@ -1,4 +1,4 @@
-import { readFile } from "./utils/inputParser.js"
+import { readFile } from './utils/inputParser.js'
 
 const YEAR = 2022
 const DAY = 1

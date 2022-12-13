@@ -5,9 +5,9 @@ const YEAR = 2021
 const DAY = 1
 const TRIM_LAST = true
 
-export const solve = readFile(YEAR, DAY, TRIM_LAST)
-    .pipe(map(x => parseInt(x)))
-    .pipe(reduce((acc, curr) => {
+export const solve = readFile(YEAR, DAY, TRIM_LAST).pipe(
+    map(x => parseInt(x)),
+    reduce((acc, curr) => {
         if (acc.items.length < 3) {
             acc.items.push(curr)
             return acc
@@ -16,5 +16,6 @@ export const solve = readFile(YEAR, DAY, TRIM_LAST)
         acc.items.shift()
         acc.items.push(curr)
         return acc
-    }, { count: 0, items: [] }))
-    .pipe(map(x => x.count))
+    }, { count: 0, items: [] }),
+    map(x => x.count)
+)
